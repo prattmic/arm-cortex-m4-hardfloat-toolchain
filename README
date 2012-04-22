@@ -1,0 +1,24 @@
+This script will install a full GNU toolchain for building for the Cortex-M4 line of ARM processors, using hardware floating point instructions and calling conventions.  I make no promises that it will work for anything else.
+
+The target is arm-none-eabi, and gcc is built with the following multilibs:
+
+.;
+thumb;@mthumb
+thumb/thumb2;@mthumb@march=armv7
+thumb/armv6-m;@mthumb@march=armv6-m
+thumb/cortex-m4/float-abi-hard/fpuv4-sp-d16;@mthumb@mcpu=cortex-m4@mfloat-abi=hard@mfpu=fpv4-sp-d16
+
+In install.sh, make sure to edit PREFIX to the location that you want your toolchain installed.
+
+By default, all 'make's are called with -j8, which I find is perfectly smooth on my 4 thread Core i5 and SSD, however when building from my HDD, things get bogged down.
+
+Also, the script will pause after most operations, to help with finding make errors.  If you want it to run straight through, comment out all of the 'read' lines.  Note, however, that there are several sudo commands near the end that may prompt for your password.
+
+When building your programs the CFLAGS you want are:
+-mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16
+
+You may also want:
+-mthumb-interwork -mlittle-endian
+
+
+Happy Compiling!
