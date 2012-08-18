@@ -1,7 +1,7 @@
 BINUTILS = binutils-2.22
 NEWLIB = newlib-1.20.0
 GCC = gcc-4.7.1
-GDB = gdb-7.4.1
+GDB = gdb-7.5
 
 MAKEOPTIONS = -j8
 
