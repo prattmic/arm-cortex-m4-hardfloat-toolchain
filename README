@@ -1,3 +1,7 @@
+I recommend that you look at gcc-arm-embedded at https://launchpad.net/gcc-arm-embedded.  This toolchain supports hard float and is supported by ARM.  However, it only has GDB 7.4, not 7.5.
+
+--------
+
 This script will install a full GNU toolchain for building for the Cortex-M4 line of ARM processors, using hardware floating point instructions and calling conventions.  I make no promises that it will work for anything else.
 
 The target is arm-none-eabi, and gcc is built with the following multilibs:
